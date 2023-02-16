@@ -1,5 +1,9 @@
-#!/bin/bash
 #include <stdio.h>
+/**
+ * main - print sizes of data types
+ *
+ * Return: 0
+*/
 int main(void)
 {
 	printf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(char);
