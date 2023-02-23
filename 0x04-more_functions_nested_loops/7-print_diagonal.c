@@ -1,4 +1,4 @@
-#include "main"
+#include "main.h"
 
 /**
  * print_diagonal - Draws a straight line using the character _.
@@ -18,6 +18,7 @@ void print_diagonal(int n)
 
 			if (len == n - 1)
 				continue;
+
 			_putchar('\n');
 		}
 	}
