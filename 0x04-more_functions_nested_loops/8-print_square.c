@@ -1,19 +1,23 @@
 #include "main.h"
+#include "holberton.h"
 
 /**
- * print_square - Draws a straight line using the character _.
- * @n: The number of \ characters to be printed.
+ * print_square - Prints a squareusing the character #.
+ * @size: The size of the square.
  */
-void print_square(int n)
+void print_square(int size)
 {
-	int len, i;
+	int hgt, wid;
 
-	if (n > 0)
+	if (size > 0)
 	{
-		for (len = 0; len < n; len++)
+		for (hgt = 0; hgt < size; hgt++)
 		{
-			for (i = 0; i < n; i++)
+			for (wid = 0; wid < size; wid++)
 				_putchar('#');
+
+			if (hgt == size - 1)
+				continue;
 			_putchar('\n');
 		}
 	}
