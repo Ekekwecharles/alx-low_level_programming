@@ -8,7 +8,7 @@
  * Return: result (int)
  */
 
-int  power(int base, int exp)
+int power(int base, int exp)
 {
 	int i, num;
 
