@@ -13,3 +13,14 @@ void print_rev(char *s)
 
 	_putchar('\n');
 }
+int _strlen(char *s)
+{
+        int sum = 0;
+
+        while (*s++)
+        {
+                sum++;
+        }
+
+        return (sum);
+}
