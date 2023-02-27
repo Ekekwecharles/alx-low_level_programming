@@ -8,10 +8,9 @@ int _strlen(char *s)
 {
 	int sum = 0;
 
-	while (*s != '\0')
+	while (*s++)
 	{
 		sum++;
-		*s++;
 	}
 
 	return (sum);
