@@ -3,20 +3,18 @@
 * rev_string -> string in reverse
 * @s: the string to be printed in rev
 */
-
 void rev_string(char *s)
 {
-	int i, n;
-	char t[10];
+	int len = 0, index = 0;
+	char tmp;
 
-	n = 0;
-	while (s[n] != '\0')
-		n++;
+	while (s[index++])
+		len++;
 
-	for (i = 0; i < n; i++)
-		t[i] = s[i];
-
-	for (i = 0; i < n; i++)
-		s[i] = t[(n - 1) - i];
-
+	for (index = len - 1; index >= len / 2; index--)
+	{
+		tmp = s[index];
+		s[index] = s[len - index - 1];
+		s[len - index - 1] = tmp;
+	}
 }
