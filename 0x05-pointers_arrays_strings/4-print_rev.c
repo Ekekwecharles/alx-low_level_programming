@@ -6,21 +6,13 @@
  */
 void print_rev(char *s)
 {
-	int len = _strlen(s);
-	char *start = (s + (len - 1));
-	while (*start-- >= *s)
-		_putchar(*start);
+	int len = 0, index;
 
-	_putchar('\n');
-}
-int _strlen(char *s)
-{
-        int sum = 0;
+	while (s[index++])
+		len++;
 
-        while (*s++)
-        {
-                sum++;
-        }
+	for (index = len - 1; index >= 0; index--)
+		_putchar(s[index]);
 
-        return (sum);
+	_purchar('\n');
 }
