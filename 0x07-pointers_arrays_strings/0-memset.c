@@ -5,6 +5,7 @@
  * @s: First Operand
  * @b: Second
  * @n: third
+ * Return: A pointer to the filled memory area @s.
  */
 char *_memset(char *s, char b, unsigned int n)
 {
