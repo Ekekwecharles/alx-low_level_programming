@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strbrk - a function that locates a character in a string.
+ * _strpbrk - a function that locates a character in a string.
  * @s: First Operand
  * @accept: Second
  * Return: A pointer
