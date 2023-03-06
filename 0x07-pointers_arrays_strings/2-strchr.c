@@ -4,7 +4,7 @@
  * _strchr - a function that locates a character in a string.
  * @s: First Operand
  * @c: Second
- * Return: A pointer to the filled memory area @s.
+ * Return: A pointer
  */
 char *_strchr(char *s, char c)
 {
@@ -14,7 +14,7 @@ char *_strchr(char *s, char c)
 	ptr2 = s;
 
 	i = 0;
-	while (*(ptr2 + i) != '\0')
+	while (*(ptr2 + i) >= '\0')
 	{
 		len++;
 		i++;
@@ -28,13 +28,8 @@ char *_strchr(char *s, char c)
 			ptr1 = (ptr2 + i);
 			return (ptr1);
 		}
-		else
-		{
-			i++;
-			continue;
-		}
-
+		i++;
 	}
-	return (NULL);
+	return ('\0');
 }
 
