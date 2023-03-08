@@ -7,9 +7,9 @@
  * @end: third
  * Return: int
  */
-int sqrt_helper(int n, int start, int end)
+long int sqrt_helper(long int n, long int start, long int end)
 {
-	int mid, mid_sq;
+	long int mid, mid_sq;
 
 	if (start > end)
 		return (-1);
@@ -30,7 +30,7 @@ int sqrt_helper(int n, int start, int end)
  * @n: First parameter
  * Return: int
  */
-int _sqrt_recursion(int n)
+long int _sqrt_recursion(long int n)
 {
 	if (n < 0)
 		return (-1);
