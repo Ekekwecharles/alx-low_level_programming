@@ -5,6 +5,7 @@
 /**
  * is_palindrome- checks for palindrome
  * @s: First parameter
+ * Return: int
  */
 int is_palindrome(char *s)
 {
