@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main- prints name of file
+ * main - prints name of file
  * @argc: First Parameter
  * @argv: Second parameter
  * Return: 0
