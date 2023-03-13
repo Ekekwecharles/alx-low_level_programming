@@ -7,17 +7,21 @@
  * @c: second
  * Return: ponter
  */
-
 char *create_array(unsigned int size, char c)
 {
-	unsigned int i;
-	char *arr = (char *)malloc(size * sizeof(char));
+	char *array;
+	unsigned int index;
 
 	if (size == 0)
-		return ('\0');
-	for (i = 0; i < size; i++)
-	{
-		arr[i] = c;
-	}
-	return (arr);
+		return (NULL);
+
+	array = malloc(sizeof(char) * size);
+
+	if (array == NULL)
+		return (NULL);
+
+	for (index = 0; index < size; index++)
+		array[index] = c;
+
+	return (array);
 }

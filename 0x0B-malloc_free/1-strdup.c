@@ -6,29 +6,26 @@
  * @str: First parameter
  * Return: ponter
  */
-
 char *_strdup(char *str)
 {
-	int i, len = 0, j;
-	char *arr;
+	char *duplicate;
+	int index, len = 0;
 
 	if (str == NULL)
 		return (NULL);
-	j = 0;
-	while (str[j])
-	{
+
+	for (index = 0; str[index]; index++)
 		len++;
-		j++;
-	}
-	arr = (char *)malloc(len * sizeof(char));
-	if (arr == NULL)
+
+	duplicate = malloc(sizeof(char) * (len + 1));
+
+	if (duplicate == NULL)
 		return (NULL);
 
-	for (i = 0; i < len; i++)
-		arr[i] = str[i];
+	for (index = 0; str[index]; index++)
+		duplicate[index] = str[index];
 
-	return (arr);
+	duplicate[len] = '\0';
+
+	return (duplicate);
 }
-
-
-

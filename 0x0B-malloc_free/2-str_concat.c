@@ -7,35 +7,31 @@
  * @s2: second
  * Return: ponter
  */
+
 char *str_concat(char *s1, char *s2)
 {
-	char *arr;
-	int i;
+	char *concat_str;
+	int index, concat_index = 0, len = 0;
 
 	if (s1 == NULL)
 		s1 = "";
+
 	if (s2 == NULL)
 		s2 = "";
 
+	for (index = 0; s1[index] || s2[index]; index++)
+		len++;
 
-	arr = (char *)malloc((sizeof(s1) + sizeof(s2)) * sizeof(char));
+	concat_str = malloc(sizeof(char) * len);
 
-	if (arr == NULL)
+	if (concat_str == NULL)
 		return (NULL);
-	i = 0;
-	while (*s1)
-	{
-		arr[i] = *s1;
-		s1++;
-		i++;
-	}
-	while (*s2)
-	{
-		arr[i] = *s2;
-		s2++;
-		i++;
-	}
-	arr[i] = '\0';
-	return (arr);
-}
 
+	for (index = 0; s1[index]; index++)
+		concat_str[concat_index++] = s1[index];
+
+	for (index = 0; s2[index]; index++)
+		concat_str[concat_index++] = s2[index];
+
+	return (concat_str);
+}
