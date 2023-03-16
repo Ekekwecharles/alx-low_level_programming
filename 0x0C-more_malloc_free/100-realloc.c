@@ -16,7 +16,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	char *filter;
 	char *filter2;
 
-	filter2 = ptr;	
+	filter2 = ptr;
 	if (new_size == old_size)
 		return (ptr);
 
@@ -39,5 +39,4 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 
 	return (arr2);
-			
 }
