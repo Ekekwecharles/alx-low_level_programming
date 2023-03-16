@@ -11,34 +11,43 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	unsigned int i;
-	void *arr1, *arr2;
-	char *filter;
-	char *filter2;
+	void *mem;
+	char *ptr_copy, *filler;
+	unsigned int index;
 
-	filter2 = ptr;
 	if (new_size == old_size)
 		return (ptr);
 
 	if (ptr == NULL)
 	{
-		arr1 = malloc(new_size);
-		if (arr1 == NULL)
+		mem = malloc(new_size);
+
+		if (mem == NULL)
 			return (NULL);
-		return (arr1);
+
+		return (mem);
 	}
+
 	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
 
-	arr2 = malloc(new_size);
-	filter = arr2;
-	for (i = 0; i < old_size; i++)
+	ptr_copy = ptr;
+	mem = malloc(sizeof(*ptr_copy) * new_size);
+
+	if (mem == NULL)
 	{
-		filter[i] = filter2[i];
+		free(ptr);
+		return (NULL);
 	}
 
-	return (arr2);
+	filler = mem;
+
+	for (index = 0; index < old_size && index < new_size; index++)
+		filler[index] = *ptr_copy++;
+
+	free(ptr);
+	return (mem);
 }
