@@ -9,3 +9,6 @@ Tasks
 
 2. Write a function that appends text at the end of a file.
 2-append_text_to_file.c
+
+3. Write a program that copies the content of a file to another file.
+3-cp.c
