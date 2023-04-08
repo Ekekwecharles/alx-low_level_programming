@@ -24,13 +24,10 @@ int copy_file(char *from, char *to)
 
 	fd1 = open(from, O_RDONLY);
 	fd2 = open(to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd1 == -1)
-		return (-2);
-	if (fd2 == -1)
-		return (-3);
+
 	while ((rd = read(fd1, buffer, 1024)) > 0)
 		count += rd;
-	if (rd == -1)
+	if (rd == -1 || fd1 == -1)
 	{
 		free(buffer);
 		return (-2);
@@ -38,11 +35,13 @@ int copy_file(char *from, char *to)
 	buffer[count] = '\0';
 
 	wr = write(fd2, buffer, count);
-	if (wr == -1)
+	if (wr == -1 || fd2 == -1)
 	{
 		free(buffer);
 		return (-3);
 	}
+
+	free(buffer);
 
 	cls1 = close(fd1);
 	if (cls1 == -1)
@@ -68,7 +67,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
