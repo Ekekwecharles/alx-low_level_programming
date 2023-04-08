@@ -5,7 +5,7 @@
  * @b: First parameter
  *
  * Return: converted integer if success
- * 		0 if fail
+ *		0 if fail
  */
 
 unsigned int binary_to_uint(const char *b)
@@ -16,7 +16,7 @@ unsigned int binary_to_uint(const char *b)
 	if (b == NULL)
 		return (0);
 
-	while(b[i])
+	while (b[i])
 	{
 		if (b[i] < 48 || b[i] > 49)
 			return (0);
@@ -24,10 +24,10 @@ unsigned int binary_to_uint(const char *b)
 		count++;
 	}
 
-	for(i = count - 1; i >= 0; i--)
+	for (i = count - 1; i >= 0; i--)
 	{
 		j = count - 1 - i;
-		while(j != 0)
+		while (j != 0)
 		{
 			mul *= 2;
 			j--;
