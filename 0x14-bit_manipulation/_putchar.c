@@ -2,5 +2,5 @@
 
 void _putchar(char c)
 {
-	write(STD0UT_FILENO, &c, 1);
+	write(STDOUT_FILENO, &c, 1);
 }
