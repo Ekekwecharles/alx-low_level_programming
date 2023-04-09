@@ -16,6 +16,9 @@ int get_bit(unsigned long int n, unsigned int index)
 	int *buffer;
 	int val;
 
+	if (n == 0)
+		return (-1);
+
 	while (copy > 0)
 	{
 		copy = copy / 2;
