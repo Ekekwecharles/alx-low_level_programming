@@ -13,7 +13,7 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int count = 0, copy = n, i;
-	char *buffer;
+	int *buffer;
 	int val;
 
 	while (copy > 0)
