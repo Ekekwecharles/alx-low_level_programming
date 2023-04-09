@@ -14,6 +14,7 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int count = 0, copy = n, i;
 	char *buffer;
+	int val;
 
 	while (copy > 0)
 	{
@@ -36,5 +37,8 @@ int get_bit(unsigned long int n, unsigned int index)
 	if (index >= count)
 		return (-1);
 
-	return (buffer[index]);
+	val = buffer[index];
+	free(buffer);
+
+	return (val);
 }
