@@ -12,4 +12,10 @@ Tasks
 2-get_bit.c
 
 3. Write a function that sets the value of a bit to 1 at a given index.
-3-set_bit.c
+3-set_bit.
+
+4. Write a function that sets the value of a bit to 0 at a given index.
+4-clear_bit.c
+
+5. Write a function that returns the number of bits you would need to flip to get from one number to another.
+5-flip_bits.cc
