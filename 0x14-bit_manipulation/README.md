@@ -18,4 +18,10 @@ Tasks
 4-clear_bit.c
 
 5. Write a function that returns the number of bits you would need to flip to get from one number to another.
-5-flip_bits.cc
+5-flip_bits.c
+
+6. Write a function that checks the endianness.
+int get_endianness(void);
+
+7. Crackme3: Find the password for this program.
+101-password
