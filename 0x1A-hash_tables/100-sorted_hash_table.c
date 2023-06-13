@@ -14,7 +14,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 	shash_table_t *new_hash_table;
 	unsigned long int i;
 
-	new_hash_table = malloc(sizeof(hash_table_t));
+	new_hash_table = malloc(sizeof(shash_table_t));
 
 	if (new_hash_table == NULL)
 		return (NULL);
@@ -95,8 +95,11 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		ht->shead = new_node;
 		ht->stail = new_node;
 	}
-	/* checks if the key(ascii value) of the first item on the array(hash table) is greater than */
-	/* the newly created node, no need to traverse the list, the new node is added at the first index */
+	/*
+	 * checks if the key(ascii value) of the first item on the array(hash table)
+	 * is greater than the newly created node, no need to traverse the list,
+	 * the new node is added at the first index
+	 */
 	else if (strcmp(ht->shead->key, key) > 0)
 	{
 		new_node->sprev = NULL;
@@ -149,7 +152,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 }
 
 /**
- * hash_table_print - prints a hash table
+ * shash_table_print - prints a hash table
  * @ht: pointer to the hash table
  */
 
@@ -182,33 +185,37 @@ void shash_table_print(const shash_table_t *ht)
 	printf("}\n");
 }
 
+/**
+ * shash_table_print_rev - prints a hash table
+ * @ht: pointer to the hash table
+ */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-        unsigned long int i;
-        /* Flag to check if it's the first key-value pair */
-        int first = 1;
-        shash_node_t *node;
+	unsigned long int i;
+	/* Flag to check if it's the first key-value pair */
+	int first = 1;
+	shash_node_t *node;
 
-        if (ht == NULL)
-                return;
+	if (ht == NULL)
+		return;
 
-        printf("{");
-        for (i = ht->size; i > 0; i--)
-        {
-                node = ht->array[i - 1];
+	printf("{");
+	for (i = ht->size; i > 0; i--)
+	{
+		node = ht->array[i - 1];
 
-                while (node != NULL)
-                {
-                        if (first)
-                                first = 0;
-                        else
-                                printf(", ");
+		while (node != NULL)
+		{
+			if (first)
+				first = 0;
+			else
+				printf(", ");
 
-                        printf("'%s': '%s'", node->key, node->value);
-                        node = node->next;
-                }
-        }
-        printf("}\n");
+			printf("'%s': '%s'", node->key, node->value);
+			node = node->next;
+		}
+	}
+	printf("}\n");
 }
 
 /**
@@ -242,4 +249,3 @@ void shash_table_delete(shash_table_t *ht)
 	free(ht->array);
 	free(ht);
 }
-
