@@ -211,7 +211,11 @@ void shash_table_print(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
-/* reverse */
+
+/**
+ * shash_table_print_rev - prints a hash table
+ * @ht: pointer to the hash table
+ */
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	unsigned long int i;
