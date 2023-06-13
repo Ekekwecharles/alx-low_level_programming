@@ -161,7 +161,28 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
  * shash_table_print - prints a hash table
  * @ht: pointer to the hash table
  */
+void shash_table_print(const shash_table_t *ht)
+{
+	shash_node_t *node;
 
+	if (ht == NULL)
+	{
+		return;
+	}
+	node = ht->shead;
+	printf("{");
+	while (node != NULL)
+	{
+		printf("'%s': '%s'", node->key, node->value);
+		node = node->snext;
+		if (node != NULL)
+			printf(", ");
+	}
+	printf("}\n");
+}
+
+#if 0
+/* THE TWO PRINT BELOW WILL BE PRINT THE COLLISIONS IF AVAILABLE */
 void shash_table_print(const shash_table_t *ht)
 {
 	unsigned long int i;
@@ -190,11 +211,7 @@ void shash_table_print(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
-
-/**
- * shash_table_print_rev - prints a hash table
- * @ht: pointer to the hash table
- */
+/* reverse */
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	unsigned long int i;
@@ -220,6 +237,31 @@ void shash_table_print_rev(const shash_table_t *ht)
 			printf("'%s': '%s'", node->key, node->value);
 			node = node->next;
 		}
+	}
+	printf("}\n");
+}
+#endif
+
+/**
+ * shash_table_print_rev - prints a hash table
+ * @ht: pointer to the hash table
+ */
+void shash_table_print_rev(const shash_table_t *ht)
+{
+	shash_node_t *node;
+
+	if (ht == NULL)
+	{
+		return;
+	}
+	node = ht->stail;
+	printf("{");
+	while (node != NULL)
+	{
+		printf("'%s': '%s'", node->key, node->value);
+		node = node->sprev;
+		if (node != NULL)
+			printf(", ");
 	}
 	printf("}\n");
 }
